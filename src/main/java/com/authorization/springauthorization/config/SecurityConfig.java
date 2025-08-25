@@ -1,12 +1,10 @@
 package com.authorization.springauthorization.config;
 
-import com.authorization.springauthorization.entity.Permissions;
 import com.authorization.springauthorization.filter.JwtAuthenticationFilter;
 import com.authorization.springauthorization.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -44,6 +42,7 @@ public class SecurityConfig {
 //                        .requestMatchers(HttpMethod.GET,"/api/weather/health","/api/weather/all","/api/weather/forCity").hasAuthority(Permissions.WEATHER_READ.name())
 //                        .requestMatchers(HttpMethod.DELETE,"/api/weather/deleteCity").hasAuthority(Permissions.WEATHER_DELETE.name())
 //                        .requestMatchers(HttpMethod.PUT,"/api/weather/**").hasAuthority(Permissions.WEATHER_WRITE.name())
+                                .anyRequest().authenticated()
                 )
 
 //                .httpBasic(Customizer.withDefaults()); // this part will remove the basic authentication.

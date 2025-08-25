@@ -32,7 +32,6 @@ public class AuthenticateController {
             );
             return ResponseEntity.ok(jwtUtils.generateToken(request.getUsername()));
         }catch (Exception e){
-//            System.out.println(e.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }

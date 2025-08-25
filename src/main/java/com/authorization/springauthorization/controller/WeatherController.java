@@ -20,19 +20,19 @@ public class WeatherController {
     private CacheInspectionService inspection;
 
     @GetMapping("/forCity")
-    @PreAuthorize("hasAnyAuthority('WEATHER_READ')")
+    @PreAuthorize("hasAuthority('WEATHER_READ')")
     public ResponseEntity<String> getWeatherByCity(@RequestParam String city){
         return ResponseEntity.ok(service.getWeatherByCity(city));
     }
 
     @PostMapping("/save")
-    @PreAuthorize("hasAnyAuthority('WEATHER_WRITE')")
+    @PreAuthorize("hasAuthority('WEATHER_WRITE')")
     public ResponseEntity<Weather> saveWeather(@RequestBody Weather weather){
         return ResponseEntity.ok(service.save(weather));
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasAnyAuthority('WEATHER_READ')")
+    @PreAuthorize("hasAuthority('WEATHER_READ')")
     public ResponseEntity<List<Weather>> getAll(){
         return ResponseEntity.ok(service.getWeather());
     }
@@ -43,19 +43,19 @@ public class WeatherController {
     }
 
     @PutMapping("/{city}")
-    @PreAuthorize("hasAnyAuthority('WEATHER_WRITE')")
+    @PreAuthorize("hasAuthority('WEATHER_WRITE')")
     public ResponseEntity<String> updateWeather(@PathVariable String city, @RequestParam String foreCast){
         return ResponseEntity.ok(service.updateWeather(city,foreCast));
     }
 
     @DeleteMapping("/deleteCity")
-    @PreAuthorize("hasAnyAuthority('WEATHER_DELETE')")
+    @PreAuthorize("hasAuthority('WEATHER_DELETE')")
     public ResponseEntity<String> deleteCity(@RequestParam String city){
         return ResponseEntity.ok(service.deleteCity(city));
     }
 
     @GetMapping("/health")
-    @PreAuthorize("hasAnyAuthority('WEATHER_READ')")
+    @PreAuthorize("hasAuthority('WEATHER_READ')")
     public ResponseEntity<String> getHealth(){
         return ResponseEntity.ok("Healthy");
     }
