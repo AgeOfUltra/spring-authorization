@@ -22,7 +22,7 @@ public class UserPasswordInitializer {
 
                 System.out.println("Admin users is created.");
             }
-            if(userRepo.findByUsername("guest").isEmpty()){
+            if(userRepo.findByUsername("Guest").isEmpty()){
 
                 Users guest = new Users();
                 guest.setUsername("Guest");

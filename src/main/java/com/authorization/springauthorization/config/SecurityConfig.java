@@ -41,9 +41,11 @@ public class SecurityConfig {
 
                         .requestMatchers("/h2-console/**","api/authenticate").permitAll()
                         .requestMatchers("/app/weather").hasAuthority(Permissions.WEATHER_READ.name())
-                        .requestMatchers(HttpMethod.GET,"/api/weather/health","/api/weather/all","/api/weather/forCity").hasAuthority(Permissions.WEATHER_READ.name())
-                        .requestMatchers(HttpMethod.DELETE,"/api/weather/deleteCity").hasAuthority(Permissions.WEATHER_DELETE.name())
+                        .requestMatchers(HttpMethod.GET,"/api/weather/**").hasAuthority(Permissions.WEATHER_READ.name())
+                        .requestMatchers(HttpMethod.POST,"/app/weather/**").hasAuthority(Permissions.WEATHER_WRITE.name())
+                        .requestMatchers(HttpMethod.DELETE,"/api/weather/**").hasAuthority(Permissions.WEATHER_DELETE.name())
                         .requestMatchers(HttpMethod.PUT,"/api/weather/**").hasAuthority(Permissions.WEATHER_WRITE.name())
+                        .anyRequest().authenticated()
                 )
 
 //                .httpBasic(Customizer.withDefaults()); // this part will remove the basic authentication.
