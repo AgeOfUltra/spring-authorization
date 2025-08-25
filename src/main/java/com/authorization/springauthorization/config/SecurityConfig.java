@@ -40,10 +40,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers("/h2-console/**","api/authenticate").permitAll()
-                        .requestMatchers("/app/weather").hasAuthority(Permissions.WEATHER_READ.name())
-                        .requestMatchers(HttpMethod.GET,"/api/weather/health","/api/weather/all","/api/weather/forCity").hasAuthority(Permissions.WEATHER_READ.name())
-                        .requestMatchers(HttpMethod.DELETE,"/api/weather/deleteCity").hasAuthority(Permissions.WEATHER_DELETE.name())
-                        .requestMatchers(HttpMethod.PUT,"/api/weather/**").hasAuthority(Permissions.WEATHER_WRITE.name())
+//                        .requestMatchers("/app/weather").hasAuthority(Permissions.WEATHER_READ.name())
+//                        .requestMatchers(HttpMethod.GET,"/api/weather/health","/api/weather/all","/api/weather/forCity").hasAuthority(Permissions.WEATHER_READ.name())
+//                        .requestMatchers(HttpMethod.DELETE,"/api/weather/deleteCity").hasAuthority(Permissions.WEATHER_DELETE.name())
+//                        .requestMatchers(HttpMethod.PUT,"/api/weather/**").hasAuthority(Permissions.WEATHER_WRITE.name())
                 )
 
 //                .httpBasic(Customizer.withDefaults()); // this part will remove the basic authentication.
